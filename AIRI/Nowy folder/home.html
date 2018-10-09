@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <!-- STYLES -->
+        <link rel="Stylesheet" type="text/css" href="styles/test.css">
+        <link rel="stylesheet" href="styles/jquery.modal.min.css" />
+        <link rel="icon" href="images/icon.png">
+        <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+        <!-- SCRIPTS -->
+        <script type="text/javascript" src="plugins/translate.js"></script>
+		<script src="plugins/responsivevoice.js"></script>
+		<script src="plugins/interact.min.js"></script>
+        <script src="plugins/jquery-3.3.1.min.js"></script>
+        <script src="plugins/jquery-ui.min.js"></script>
+        <script src="plugins/jquery.fullscreen-min.js"></script>
+        <script src="plugins/annyang.min.js"></script>
+        <script src="plugins/background.js"></script>
+        <script src="system/interact.js"></script>
+        <script src="system/system.js"></script>
+        <script src="parameters/airi-properties.js"></script>
+        <script src="brain/brain.js"></script>
+        <script src="brain/main.js"></script>
+        <script src="js.js"></script>
+        <script src="plugins/jquery.modal.min.js"></script>
+        <!-- META -->
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <audio id="backgroundMusic" muted preload="auto" loop="true" src="back.mp3" >
+		</audio>
+        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        <ul id="loadinglog"></ul>
+        <video id="linku"><source src="link%20starto.mp4" type="video/mp4"></video>
+        <iframe id="airi" width="640" height="480" src="https://sketchfab.com/models/7f372fb570f142c4a96cab63c1638e98/embed?transparent=1&amp;autostart=1&amp;preload=1&amp;scrollwheel=0" frameborder="0" allow="autoplay;" allowfullscreen="allowfullscreen"></iframe>
+        <div class="wrap">    
+        <div id="youtubeList">
+            <img id="leftController" src="images/left.png">
+            <img id="rightController" src="images/right.png">
+            <img id="ytButton" src="images/down.png">
+            <div id="prop1" class="highlight">
+                <iframe id="v1" class="video" src="" width="400" height="250" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe>
+            </div>
+            <span id="s1" class="svideo" onclick="selectVideo(this.id)"></span>
+            <div id="prop2" class="highlight">
+                <iframe id="v2" class="video" src="" width="400" height="250" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe>
+            </div>
+            <span id="s2" class="svideo" onclick="selectVideo(this.id)"></span>
+            <div id="prop3" class="highlight">
+                <iframe id="v3" class="video" src="" width="400" height="250" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe>
+            </div>
+            <span id="s3" class="svideo" onclick="selectVideo(this.id)"></span>
+            <div id="prop4" class="highlight">
+                <iframe id="v4" class="video" src="" width="400" height="250" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe>
+            </div>
+            <span id="s4" class="svideo" onclick="selectVideo(this.id)"></span>
+            <div id="prop5" class="highlight">
+                <iframe id="v5" class="video" src="" width="400" height="250" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe>
+            </div>
+            <span id="s5" class="svideo" onclick="selectVideo(this.id)"></span>
+        </div>
+        <div id="commander" class="col">
+            <img id="controls" src="images/play.png">
+                <h1 id="name">AIRI</h1>
+                <div id="console">
+                    <ul id="response">
+                    </ul>
+                </div>
+                <div id="commandLine">
+                    <input id="commandReciver"  type="text" />
+                    <label class="staticValue">[AIRI]:</label>
+                    <label for="commandReciver"></label>
+                    <img id="mic" src="images/mic.png">
+                </div>
+            </div>
+            <div id="googleSearch" class="col">
+                <div id="google" class="modal">
+                            <script>
+                                function gcseCallback() {
+                                  if (document.readyState != 'complete')
+                                    return google.setOnLoadCallback(gcseCallback, true);
+                                  google.search.cse.element.render({gname:'gsearch', div:'results', tag:'search', attributes:{linkTarget:''}});
+                                  var element = google.search.cse.element.getElement('gsearch');
+                                  element.execute('this is my query');
+                                };
+                                window.__gcse = {
+                                  parsetags: 'explicit',
+                                  callback: gcseCallback
+                                };
+                                (function() {
+                                  var cx = '009815358231196209861:sjqdfprutss';
+                                  var gcse = document.createElement('script');
+                                  gcse.type = 'text/javascript';
+                                  gcse.async = true;
+                                  gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                                    '//www.google.com/cse/cse.js?cx=' + cx;
+                                  var s = document.getElementsByTagName('script')[0];
+                                  s.parentNode.insertBefore(gcse, s);
+                                })();
+                                </script>
+
+                                <div id="results"></div>
+                        </div>
+            </div>
+            <div id="yt" class="col">
+                <div id="youtube" class="modal">
+                    <iframe id="video" width="400" height="250" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe>
+                </div>
+            </div>
+            <div id="spf" class="col">
+                    <div id="spotify" class="modal">
+                        <iframe id="player" width="400" height="80" src="" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    </div>
+            </div>
+        </div>
+    </body>
+</html>
